@@ -26,14 +26,21 @@ export async function onRequestPost(context) {
       source: source || 'pgicover.com',
     };
 
+    if (!env.PGI_EMAILS) {
+      return new Response(JSON.stringify({ error: 'KV not configured', hasEnv: !!env }), {
+        status: 500,
+        headers: { 'Content-Type': 'application/json', ...corsHeaders },
+      });
+    }
+
     await env.PGI_EMAILS.put(email, JSON.stringify(record));
 
-    return new Response(JSON.stringify({ success: true }), {
+    return new Response(JSON.stringify({ success: true, email }), {
       status: 200,
       headers: { 'Content-Type': 'application/json', ...corsHeaders },
     });
   } catch (error) {
-    return new Response(JSON.stringify({ error: 'Server error' }), {
+    return new Response(JSON.stringify({ error: error.message }), {
       status: 500,
       headers: { 'Content-Type': 'application/json', ...corsHeaders },
     });
