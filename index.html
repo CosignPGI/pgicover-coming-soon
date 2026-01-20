@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PGI Cover - Coming Soon</title>
+    <meta name="description" content="Personal Guarantee Insurance for business owners. Protect your personal assets when signing a personal guarantee for a business loan.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html, body {
+            height: 100%;
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+        }
+
+        body {
+            background: url('background.jpg') no-repeat center center fixed;
+            background-size: cover;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+
+        .overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(
+                to bottom,
+                rgba(0, 30, 60, 0.3) 0%,
+                rgba(0, 30, 60, 0.5) 100%
+            );
+            z-index: 1;
+        }
+
+        .container {
+            position: relative;
+            z-index: 2;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+            padding: 40px;
+        }
+
+        header {
+            display: flex;
+            justify-content: flex-start;
+        }
+
+        .logo {
+            width: 120px;
+            height: auto;
+        }
+
+        main {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: flex-start;
+            max-width: 600px;
+            padding: 40px 0;
+        }
+
+        h1 {
+            font-size: 3.5rem;
+            font-weight: 700;
+            color: #ffffff;
+            margin-bottom: 16px;
+            line-height: 1.1;
+            text-shadow: 0 2px 20px rgba(0, 0, 0, 0.3);
+        }
+
+        .tagline {
+            font-size: 1.25rem;
+            font-weight: 400;
+            color: rgba(255, 255, 255, 0.9);
+            margin-bottom: 40px;
+            line-height: 1.6;
+            text-shadow: 0 1px 10px rgba(0, 0, 0, 0.3);
+        }
+
+        .signup-form {
+            width: 100%;
+            max-width: 480px;
+        }
+
+        .signup-form p {
+            font-size: 0.95rem;
+            color: rgba(255, 255, 255, 0.8);
+            margin-bottom: 16px;
+        }
+
+        .form-group {
+            display: flex;
+            gap: 12px;
+        }
+
+        .form-group input[type="email"] {
+            flex: 1;
+            padding: 16px 20px;
+            font-size: 1rem;
+            border: none;
+            border-radius: 8px;
+            background: rgba(255, 255, 255, 0.95);
+            color: #1a1a2e;
+            outline: none;
+            transition: box-shadow 0.3s ease;
+        }
+
+        .form-group input[type="email"]::placeholder {
+            color: #6b7280;
+        }
+
+        .form-group input[type="email"]:focus {
+            box-shadow: 0 0 0 3px rgba(134, 239, 172, 0.5);
+        }
+
+        .form-group button {
+            padding: 16px 32px;
+            font-size: 1rem;
+            font-weight: 600;
+            color: #0f172a;
+            background: linear-gradient(135deg, #86efac 0%, #4ade80 100%);
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+            white-space: nowrap;
+        }
+
+        .form-group button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(134, 239, 172, 0.4);
+        }
+
+        .form-group button:active {
+            transform: translateY(0);
+        }
+
+        .success-message {
+            display: none;
+            padding: 16px 20px;
+            background: rgba(134, 239, 172, 0.2);
+            border: 1px solid rgba(134, 239, 172, 0.5);
+            border-radius: 8px;
+            color: #86efac;
+            font-size: 1rem;
+        }
+
+        footer {
+            padding: 20px 0;
+            color: rgba(255, 255, 255, 0.6);
+            font-size: 0.875rem;
+        }
+
+        @media (max-width: 640px) {
+            .container {
+                padding: 24px;
+            }
+
+            h1 {
+                font-size: 2.5rem;
+            }
+
+            .tagline {
+                font-size: 1.1rem;
+            }
+
+            .form-group {
+                flex-direction: column;
+            }
+
+            .form-group button {
+                width: 100%;
+            }
+
+            .logo {
+                width: 100px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="overlay"></div>
+
+    <div class="container">
+        <header>
+            <img src="logo.svg" alt="PGI Cover" class="logo">
+        </header>
+
+        <main>
+            <h1>Coming Soon</h1>
+            <p class="tagline">Personal Guarantee Insurance that protects your home, savings, and personal assets when you sign a guarantee for your business loan.</p>
+
+            <div class="signup-form">
+                <p>Be the first to know when we launch:</p>
+                <form id="emailForm" class="form-group">
+                    <input type="email" name="email" placeholder="Enter your email" required>
+                    <button type="submit">Notify Me</button>
+                </form>
+                <div id="successMessage" class="success-message">
+                    Thank you! We'll notify you when we launch.
+                </div>
+            </div>
+        </main>
+
+        <footer>
+            &copy; 2025 PGI Cover. All rights reserved.
+        </footer>
+    </div>
+
+    <script>
+        // Google Sheets integration via Google Apps Script
+        const GOOGLE_SCRIPT_URL = 'YOUR_GOOGLE_APPS_SCRIPT_URL';
+
+        document.getElementById('emailForm').addEventListener('submit', async function(e) {
+            e.preventDefault();
+
+            const form = e.target;
+            const email = form.email.value;
+            const button = form.querySelector('button');
+            const originalText = button.textContent;
+
+            button.textContent = 'Sending...';
+            button.disabled = true;
+
+            try {
+                // Send to Google Sheets
+                await fetch(GOOGLE_SCRIPT_URL, {
+                    method: 'POST',
+                    mode: 'no-cors',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify({
+                        email: email,
+                        timestamp: new Date().toISOString(),
+                        source: 'pgicover.com'
+                    })
+                });
+
+                // Show success
+                form.style.display = 'none';
+                document.getElementById('successMessage').style.display = 'block';
+
+            } catch (error) {
+                console.error('Error:', error);
+                button.textContent = 'Try Again';
+                button.disabled = false;
+                setTimeout(() => {
+                    button.textContent = originalText;
+                }, 2000);
+            }
+        });
+    </script>
+</body>
+</html>
