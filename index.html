@@ -99,7 +99,7 @@
             flex-direction: column;
             justify-content: center;
             align-items: flex-start;
-            max-width: none;
+            max-width: 50rem;
             padding: 40px 0;
         }
 
@@ -252,9 +252,6 @@
     </div>
 
     <script>
-        // Google Sheets integration via Google Apps Script
-        const GOOGLE_SCRIPT_URL = 'YOUR_GOOGLE_APPS_SCRIPT_URL';
-
         document.getElementById('emailForm').addEventListener('submit', async function(e) {
             e.preventDefault();
 
@@ -267,10 +264,8 @@
             button.disabled = true;
 
             try {
-                // Send to Google Sheets
-                await fetch(GOOGLE_SCRIPT_URL, {
+                const response = await fetch('/api/subscribe', {
                     method: 'POST',
-                    mode: 'no-cors',
                     headers: {
                         'Content-Type': 'application/json',
                     },
@@ -281,9 +276,12 @@
                     })
                 });
 
-                // Show success
-                form.style.display = 'none';
-                document.getElementById('successMessage').style.display = 'block';
+                if (response.ok) {
+                    form.style.display = 'none';
+                    document.getElementById('successMessage').style.display = 'block';
+                } else {
+                    throw new Error('Subscription failed');
+                }
 
             } catch (error) {
                 console.error('Error:', error);
