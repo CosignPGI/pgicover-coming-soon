@@ -5,8 +5,16 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>PGI | Personal Guarantee Insurance</title>
 
-    <!-- Favicon -->
-    <link rel="icon" type="image/svg+xml" href="favicon.svg">
+    <!-- Favicons -->
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+    <link rel="manifest" href="/site.webmanifest">
+    <link rel="icon" type="image/x-icon" href="/favicon.ico">
+
+    <!-- Preload Critical Resources -->
+    <link rel="preload" href="background.jpg" as="image">
+    <link rel="preload" href="logo.svg" as="image">
 
     <!-- Primary Meta Tags -->
     <meta name="title" content="PGI | Personal Guarantee Insurance">
@@ -35,6 +43,82 @@
 
     <!-- Canonical -->
     <link rel="canonical" href="https://pgicover.com/">
+
+    <!-- hreflang for international SEO -->
+    <link rel="alternate" hreflang="en" href="https://pgicover.com/" />
+    <link rel="alternate" hreflang="en-US" href="https://pgiamerica.com/" />
+    <link rel="alternate" hreflang="en-CA" href="https://personalguarantee.ca/" />
+    <link rel="alternate" hreflang="x-default" href="https://pgicover.com/" />
+
+    <!-- Structured Data -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "InsuranceAgency",
+        "name": "PGI - Personal Guarantee Insurance",
+        "description": "Personal Guarantee Insurance protects business owners' personal assets when signing business loan guarantees",
+        "url": "https://pgicover.com",
+        "logo": "https://pgicover.com/logo.svg",
+        "address": {
+            "@type": "PostalAddress",
+            "streetAddress": "Mintflower Place 8-, Par-la-Ville Road",
+            "addressLocality": "Hamilton",
+            "postalCode": "HM 08",
+            "addressCountry": "BM"
+        },
+        "sameAs": [
+            "https://pgiamerica.com",
+            "https://personalguarantee.ca"
+        ],
+        "areaServed": [
+            {
+                "@type": "Country",
+                "name": "United States"
+            },
+            {
+                "@type": "Country",
+                "name": "Canada"
+            }
+        ],
+        "foundingDate": "2025"
+    }
+    </script>
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "FinancialProduct",
+        "name": "Personal Guarantee Insurance",
+        "description": "Insurance coverage protecting personal assets when signing business loan guarantees. Coverage for SBA loans, acquisition financing, and commercial lending.",
+        "provider": {
+            "@type": "InsuranceAgency",
+            "name": "PGI Holdings (Bermuda) Ltd."
+        },
+        "category": "Business Insurance",
+        "url": "https://pgicover.com"
+    }
+    </script>
+
+    <!-- Google Analytics 4 with Cross-Domain Tracking -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'G-XXXXXXXXXX', {
+            'linker': {
+                'domains': ['pgicover.com', 'pgiamerica.com', 'personalguarantee.ca']
+            }
+        });
+
+        // Track email signup conversion
+        function trackSignup(source) {
+            gtag('event', 'generate_lead', {
+                'event_category': 'engagement',
+                'event_label': 'email_signup',
+                'source': source
+            });
+        }
+    </script>
 
     <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -247,7 +331,7 @@
         </main>
 
         <footer>
-            &copy; 2025 PGI Holdings (Bermuda) Ltd. All rights reserved.
+            &copy; 2026 PGI Holdings (Bermuda) Ltd. All rights reserved.
         </footer>
     </div>
 
@@ -277,6 +361,7 @@
                 });
 
                 if (response.ok) {
+                    trackSignup('pgicover.com');
                     form.style.display = 'none';
                     document.getElementById('successMessage').style.display = 'block';
                 } else {
